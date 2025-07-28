@@ -2,7 +2,7 @@
 
 ## 基本配置
 
-```
+``` shell
 # 用户配置
 git config --global user.name "用户名"
 git config --global user.email "邮箱"
@@ -22,7 +22,7 @@ git config --global alias.ci commit
 
 ## 仓库初始化
 
-```
+``` shell
 # 创建新仓库
 git init
 git init project-name
@@ -40,7 +40,7 @@ git remote set-url origin <new-url>
 
 ## 基本操作
 
-```
+``` shell
 # 查看状态
 git status
 git status -s
@@ -67,7 +67,7 @@ git log -5
 
 ## 分支操作
 
-```
+``` shell
 # 查看分支
 git branch
 git branch -r
@@ -93,7 +93,7 @@ git branch -m <old-name> <new-name>
 
 ## 合并操作
 
-```
+``` shell
 # 合并分支
 git merge <branch-name>
 git merge --no-ff <branch-name>
@@ -115,7 +115,7 @@ git rebase --abort
 
 ## 远程操作
 
-```
+``` shell
 # 拉取更新
 git fetch
 git fetch origin
@@ -136,7 +136,7 @@ git fetch -p
 
 ## 撤销操作
 
-```
+``` shell
 # 撤销工作区修改
 git restore <file>
 git checkout -- <file>
@@ -157,7 +157,7 @@ git revert HEAD
 
 ## 标签操作
 
-```
+``` shell
 # 创建标签
 git tag v1.0.0
 git tag -a v1.0.0 -m "版本1.0.0"
@@ -179,7 +179,7 @@ git push origin --delete v1.0.0
 
 ## 储藏操作
 
-```
+``` shell
 # 储藏工作
 git stash
 git stash save "储藏信息"
@@ -201,7 +201,7 @@ git stash clear
 
 ## 差异查看
 
-```
+``` shell
 # 查看差异
 git diff
 git diff HEAD
@@ -221,7 +221,7 @@ git diff --shortstat
 
 ## 搜索和过滤
 
-```
+``` shell
 # 搜索代码
 git grep "搜索内容"
 git grep -n "搜索内容"
@@ -240,7 +240,7 @@ git blame <file>
 
 ## 子模块操作
 
-```
+``` shell
 # 添加子模块
 git submodule add <url> <path>
 
@@ -262,7 +262,7 @@ git rm <path>
 
 ## 高级技巧
 
-```
+``` shell
 # 交互式添加
 git add -i
 git add -p
@@ -289,7 +289,7 @@ git reflog show HEAD
 
 ## 配置文件
 
-```
+``` yaml
 # .gitignore 常用规则
 *.log
 node_modules/
@@ -315,7 +315,7 @@ build/
 
 ## 工作流程
 
-```
+``` shell
 # 功能分支工作流
 git checkout -b feature/new-feature
 # 开发代码
