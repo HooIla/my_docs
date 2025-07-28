@@ -8,9 +8,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
   <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/docsify@4/lib/themes/vue.css">
   
-  <!-- 主题切换相关样式 -->
+  <!-- 文档网站样式配置 - 包含响应式布局、主题切换、导航功能 -->
   <style>
-    /* 顶部导航栏 - 现代化设计 */
+    /* ===== 顶部固定导航栏设计 ===== */
+    /* 导航栏：位置固定在页面顶部，包含logo和主题切换按钮 */
     .top-nav {
       position: fixed;
       top: 0;
@@ -28,7 +29,8 @@
       transition: all 0.3s ease;
     }
     
-    /* 移动端导航栏适配 */
+    /* ===== 移动端响应式适配 ===== */
+    /* 屏幕宽度 ≤ 768px 时的导航栏样式调整 */
     @media (max-width: 768px) {
       .top-nav {
         height: 56px;
@@ -89,7 +91,8 @@
       border-bottom-color: rgba(255, 255, 255, 0.1);
     }
     
-    /* 全新的顶部导航栏设计 */
+    /* ===== 导航标题和Logo设计 ===== */
+    /* 包含图标和文字的可点击导航标题 */
     .nav-title {
       text-decoration: none;
       transition: all 0.3s ease;
@@ -130,7 +133,8 @@
       color: #42b983;
     }
 
-    /* 暗色主题适配 */
+    /* ===== 暗色主题颜色适配 ===== */
+    /* 当页面处于暗色模式时的Logo文字颜色调整 */
     .dark .logo-text {
       color: #e2e8f0;
     }
@@ -139,7 +143,8 @@
       color: #42b983;
     }
     
-    /* 右侧按钮组 */
+    /* ===== 导航栏右侧按钮区域 ===== */
+    /* 放置主题切换等功能按钮的容器 */
     .nav-buttons {
       display: flex;
       align-items: center;
@@ -147,7 +152,8 @@
     }
     
     
-    /* VitePress风格的主题切换按钮 - 无边框设计 */
+    /* ===== 主题切换按钮组件 ===== */
+    /* 仿VitePress风格的圆形切换按钮，支持日月图标切换动画 */
     .VPSwitchAppearance {
       width: 48px;
       height: 48px;
@@ -204,7 +210,8 @@
       transform: rotate(180deg) scale(0.8);
     }
     
-    /* 暗色主题状态 - 添加旋转动画 */
+    /* ===== 主题切换动画状态控制 ===== */
+    /* 暗色模式下的图标显示/隐藏和旋转动画效果 */
     .dark .sun {
       opacity: 0;
       transform: rotate(-180deg) scale(0.8);
@@ -215,7 +222,8 @@
       transform: rotate(0deg) scale(1);
     }
     
-    /* 暗色主题变量 */
+    /* ===== CSS变量定义 ===== */
+    /* 定义全局颜色变量，支持主题切换 */
     :root {
       --vp-c-gray-soft: #f6f6f7;
     }
@@ -224,7 +232,8 @@
       --vp-c-gray-soft: #2e2e32;
     }
     
-    /* 侧边栏切换按钮 - 优化样式，确保始终为圆形和完美居中 */
+    /* ===== 侧边栏切换按钮（汉堡菜单）===== */
+    /* 左下角固定位置的圆形按钮，包含三条横线图标 */
     .sidebar-toggle {
       position: fixed;
       bottom: 20px;
@@ -275,7 +284,8 @@
       box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
     }
     
-    /* 三横线样式 - 更精致，确保完美居中 */
+    /* ===== 汉堡菜单三横线图标 ===== */
+    /* 标准的三条水平线菜单图标样式 */
     .hamburger-line {
       width: 18px;
       height: 2px;
@@ -286,7 +296,8 @@
     }
     
     
-    /* 主内容区域优化 */
+    /* ===== 主要内容区域布局 ===== */
+    /* 文档内容显示区域，需要为顶部导航栏预留空间 */
     .app {
       padding-top: 60px;
       min-height: 100vh;
@@ -299,7 +310,8 @@
       transition: margin-left 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
     }
     
-    /* 当侧边栏隐藏时，内容区域可以更宽 */
+    /* ===== 动态内容宽度调整 ===== */
+    /* 侧边栏隐藏时内容区域可以使用更多宽度 */
     .sidebar-hidden .content {
       max-width: 1400px !important;
     }
@@ -443,7 +455,8 @@
       }
     }
     
-    /* 全局样式优化 - 移动端字体适配 */
+    /* ===== 全局字体和排版设置 ===== */
+    /* 响应式字体大小和行间距配置 */
     body {
       font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
       line-height: 1.6;
@@ -487,6 +500,8 @@
       }
     }
     
+    /* ===== 暗色模式文本颜色覆盖 ===== */
+    /* 确保暗色模式下所有文本都有合适的颜色 */
     .dark body {
       color: #e2e8f0;
     }
@@ -504,7 +519,8 @@
       color: #e2e8f0 !important;
     }
     
-    /* 文章标题样式优化 - 移动端适配 */
+    /* ===== 标题层级样式设计 ===== */
+    /* H1-H6标题的字体大小、间距和响应式适配 */
     h1, h2, h3, h4, h5, h6 {
       font-weight: 600;
       line-height: 1.4;
@@ -571,7 +587,8 @@
       font-size: 1.5rem;
     }
     
-    /* 代码块样式优化 - 黑夜模式适配 + 移动端适配 */
+    /* ===== 代码块显示样式 ===== */
+    /* 代码块的背景、边框、圆角和移动端适配 */
     pre {
       border-radius: 12px !important;
       box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08) !important;
@@ -606,7 +623,8 @@
       box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3) !important;
     }
     
-    /* 行内代码样式 - 黑夜模式适配 + 移动端适配 */
+    /* ===== 行内代码样式 ===== */
+    /* 文本中的单个代码片段样式，使用等宽字体 */
     code {
       background: #f1f3f4 !important;
       color: #5f6368 !important;
@@ -638,7 +656,8 @@
       border-color: #404040 !important;
     }
     
-    /* 代码块内的代码保持原样 */
+    /* ===== 代码块内部样式重置 ===== */
+    /* 防止行内代码样式影响代码块内的代码 */
     pre code {
       background: transparent !important;
       color: inherit !important;
@@ -648,7 +667,8 @@
       border-radius: 0 !important;
     }
     
-    /* 代码块语法高亮优化 - 黑夜模式 */
+    /* ===== 暗色模式语法高亮颜色 ===== */
+    /* Prism.js语法高亮在暗色模式下的颜色配置 */
     .dark .token.comment,
     .dark .token.prolog,
     .dark .token.doctype,
@@ -704,7 +724,8 @@
       color: #ffab70 !important;
     }
     
-    /* 链接样式优化 */
+    /* ===== 链接交互样式 ===== */
+    /* 超链接的颜色和悬停效果 */
     a {
       color: #42b983;
       text-decoration: none;
@@ -716,7 +737,8 @@
       text-decoration: underline;
     }
     
-    /* 表格样式优化 - 移动端适配 */
+    /* ===== 表格显示样式 ===== */
+    /* 表格边框、阴影和移动端滚动适配 */
     table {
       border-radius: 8px;
       overflow: hidden;
@@ -756,13 +778,15 @@
     }
     
     
-    /* 隐藏不需要的元素 */
+    /* ===== 界面元素控制 ===== */
+    /* 隐藏Docsify默认的搜索框和首页链接 */
     .search,
     .home-link {
       display: none !important;
     }
     
-    /* 侧边栏隐藏功能 - 修复移动端显示逻辑 */
+    /* ===== 侧边栏显示/隐藏控制 ===== */
+    /* 侧边栏的基础样式和过渡动画 */
     .sidebar {
       padding-top: 80px !important;
       transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
@@ -772,7 +796,8 @@
       border-right: 1px solid rgba(0, 0, 0, 0.06) !important;
     }
     
-    /* 桌面端侧边栏默认显示 */
+    /* ===== 桌面端侧边栏逻辑 ===== */
+    /* 屏幕宽度 ≥ 769px 时的侧边栏行为 */
     @media (min-width: 769px) {
       .sidebar-hidden .sidebar {
         transform: translateX(-100%) !important;
@@ -783,7 +808,8 @@
       }
     }
     
-    /* 移动端侧边栏逻辑 */
+    /* ===== 移动端侧边栏逻辑 ===== */
+    /* 屏幕宽度 ≤ 768px 时的侧边栏行为和遮罩层 */
     @media (max-width: 768px) {
       .sidebar {
         position: fixed !important;
@@ -831,7 +857,8 @@
       padding: 20px 0 !important;
     }
     
-    /* 侧边栏列表样式重置 - 移除所有默认符号 */
+    /* ===== 侧边栏列表样式重置 ===== */
+    /* 移除HTML列表的默认样式（圆点、缩进等）*/
     .sidebar-nav ul {
       list-style: none !important;
       padding-left: 0 !important;
@@ -851,9 +878,10 @@
       display: none !important;
     }
     
-    /* 侧边栏层级结构样式 - 支持6级层级 */
+    /* ===== 侧边栏多级菜单结构 ===== */
+    /* 支持1-6级层级的菜单样式，每级有不同的缩进和样式 */
     
-    /* 1级 - 主分类标题 */
+    /* 第1级：主分类标题 - 最高级别的分类，带有背景色和左边框 */
     .sidebar-nav > ul > li > p,
     .sidebar-nav > ul > li > strong {
       margin: 20px 0 10px 0 !important;
@@ -875,7 +903,7 @@
       background: linear-gradient(135deg, rgba(66, 185, 131, 0.12), rgba(66, 185, 131, 0.06)) !important;
     }
     
-    /* 2级 - 子分类 */
+    /* 第2级：子分类菜单 - 主要的导航项目 */
     .sidebar-nav ul li ul li a {
       padding: 10px 20px 10px 30px !important;
       margin: 2px 10px 2px 0 !important;
@@ -889,7 +917,7 @@
       position: relative !important;
     }
     
-    /* 3级 - 三级菜单 */
+    /* 第3级：三级子菜单 - 更细分的内容分类 */
     .sidebar-nav ul li ul li ul li a {
       padding: 8px 20px 8px 45px !important;
       font-size: 13px !important;
@@ -897,7 +925,7 @@
       color: #6b7280 !important;
     }
     
-    /* 4级 - 四级菜单 */
+    /* 第4级：四级子菜单 - 深层内容分类 */
     .sidebar-nav ul li ul li ul li ul li a {
       padding: 7px 20px 7px 60px !important;
       font-size: 12px !important;
@@ -905,7 +933,7 @@
       color: #9ca3af !important;
     }
     
-    /* 5级 - 五级菜单 */
+    /* 第5级：五级子菜单 - 最深层的内容分类 */
     .sidebar-nav ul li ul li ul li ul li ul li a {
       padding: 6px 20px 6px 75px !important;
       font-size: 11px !important;
@@ -914,7 +942,7 @@
       opacity: 0.8 !important;
     }
     
-    /* 6级 - 六级菜单 */
+    /* 第6级：六级子菜单 - 最大支持深度的菜单项 */
     .sidebar-nav ul li ul li ul li ul li ul li ul li a {
       padding: 6px 20px 6px 90px !important;
       font-size: 11px !important;
@@ -923,7 +951,8 @@
       opacity: 0.7 !important;
     }
     
-    /* 悬停效果 - 应用于所有级别 */
+    /* ===== 菜单项交互效果 ===== */
+    /* 鼠标悬停时的颜色变化和位移动画 */
     .sidebar-nav ul li a:hover {
       background: rgba(66, 185, 131, 0.08) !important;
       color: #42b983 !important;
@@ -932,7 +961,7 @@
       box-shadow: 0 2px 8px rgba(66, 185, 131, 0.1) !important;
     }
     
-    /* 激活状态 - 应用于所有级别 */
+    /* 当前页面对应的菜单项高亮样式 */
     .sidebar-nav ul li a.active {
       background: rgba(66, 185, 131, 0.12) !important;
       color: #42b983 !important;
@@ -941,7 +970,8 @@
       box-shadow: 0 2px 12px rgba(66, 185, 131, 0.15) !important;
     }
     
-    /* 暗色主题适配 */
+    /* ===== 侧边栏暗色模式适配 ===== */
+    /* 暗色模式下各级菜单的文字颜色调整 */
     .dark .sidebar-nav ul li a {
       color: #d1d5db !important;
     }
@@ -968,7 +998,8 @@
       box-shadow: 0 2px 12px rgba(66, 185, 131, 0.2) !important;
     }
     
-    /* 普通链接样式（保持原有样式作为后备） */
+    /* ===== 通用链接样式（兜底样式）===== */
+    /* 为未被上述层级样式覆盖的链接提供基础样式 */
     .sidebar-nav a {
       padding: 8px 25px !important;
       margin: 0 !important;
@@ -995,7 +1026,8 @@
       transition: margin-left 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
     }
     
-    /* 字数统计和阅读时间样式 - 黑夜模式适配 + 移动端优化 */
+    /* ===== 文档统计信息显示 ===== */
+    /* 页面底部的字数统计和预计阅读时间样式 */
     .docsify-count {
       color: #e2e8f0 !important;
       font-size: 0.9em !important;
@@ -1020,7 +1052,7 @@
       color: #e2e8f0 !important;
     }
       
-    /* 字数统计具体元素 */
+    /* 统计信息的具体数值元素样式 */
     .word-count, .reading-time {
       color: #e2e8f0 !important;
     }
@@ -1030,7 +1062,8 @@
       color: #e2e8f0 !important;
     }
     
-    /* 移动端触控优化 */
+    /* ===== 移动端触控体验优化 ===== */
+    /* 触控目标大小、点击反馈、滚动性能等移动端专项优化 */
     @media (max-width: 768px) {
       /* 触控目标大小优化 */
       .sidebar-nav a, .sidebar-toggle {
