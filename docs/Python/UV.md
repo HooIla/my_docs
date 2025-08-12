@@ -102,6 +102,13 @@ uv run hello.py
 
 ```shell
 uv tool install ruff		#只适用于cli 包
+
+# 全局依赖包缺失依赖
+uv pip install --python /home/$USER/.local/share/uv/tools/$TOOL/bin/python $PACKAGE
+## $USER 当前系统用户
+## $TOOL 全局工具名
+## $PACKAGE 缺失依赖包名
+
 ```
 
 
